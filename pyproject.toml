@@ -1,0 +1,41 @@
+[project]
+name = "workflow-engine"
+version = "0.1.0"
+description = "A small workflow engine where links between a workflow and its tasks cascade state changes."
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.142.4",
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
+    "uvicorn>=0.54.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.13.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+    "ty>=0.0.85",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F",  # pycodestyle, pyflakes
+    "I",            # import order
+    "UP",           # modern Python syntax
+    "B",            # likely bugs
+    "SIM",          # simpler code
+    "N",            # naming
+    "ANN",          # type annotations everywhere
+    "PT",           # pytest style
+    "RUF",          # ruff's own rules
+]
+
+[tool.ty.terminal]
+error-on-warning = true
